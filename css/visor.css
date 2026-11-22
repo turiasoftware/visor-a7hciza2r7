@@ -1,0 +1,44 @@
+:root{--fondo:#eceae6;--tinta:#1d1d1b;--suave:#6b6a66;--linea:#c9c6bf;--acento:#8a5a3b;--panel:rgba(250,249,247,.94)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--fondo);color:var(--tinta);font-family:Arial,"Liberation Sans",Helvetica,sans-serif;-webkit-tap-highlight-color:transparent}
+#visor{position:fixed;inset:0}
+#visor canvas{display:block;touch-action:none}
+#cabecera{position:fixed;top:14px;left:16px;pointer-events:none}
+.titulo{font-size:17px;font-weight:bold;letter-spacing:.02em}
+.subtitulo{font-size:11px;color:var(--suave);margin-top:2px}
+#panel{position:fixed;top:12px;right:12px;width:250px;max-height:calc(100% - 60px);overflow:auto;background:var(--panel);border:1px solid var(--linea);border-radius:6px;font-size:12px}
+#panel.plegado .cuerpo{display:none}
+#plegar{position:absolute;top:6px;right:6px;border:0;background:none;font-size:16px;cursor:pointer;color:var(--suave)}
+#panel .cuerpo{padding:10px 12px 12px}
+#panel section{margin-bottom:12px}
+#panel h2{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--suave);margin:0 0 6px;font-weight:normal}
+.botones{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+button{font:inherit}
+.botones button,#niveles button{border:1px solid var(--linea);background:#fff;padding:6px 4px;border-radius:4px;cursor:pointer;color:var(--tinta)}
+.botones button.activo,#niveles button.activo{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+#niveles{display:flex;flex-direction:column;gap:3px}
+#niveles button{text-align:left;display:flex;justify-content:space-between}
+#niveles button span{color:inherit;opacity:.6;font-size:11px}
+#niveles button:not(.activo){color:var(--suave);background:#f3f2ef}
+input[type=range]{width:100%;accent-color:var(--tinta)}
+.valor{font-size:11px;color:var(--suave);text-align:right}
+label{display:block;margin:4px 0;cursor:pointer}
+#ficha{position:fixed;left:16px;bottom:40px;max-width:290px;background:var(--panel);border:1px solid var(--linea);border-radius:6px;padding:10px 30px 10px 12px;font-size:12px}
+#ficha .nombre{font-weight:bold;font-size:14px;margin-bottom:4px}
+#ficha .datos div{color:var(--suave);margin:2px 0}
+#ficha .cerrar{position:absolute;top:4px;right:6px;border:0;background:none;font-size:18px;cursor:pointer;color:var(--suave)}
+.rotulo{font-size:11px;color:var(--tinta);background:rgba(255,255,255,.82);padding:1px 5px;border-radius:3px;white-space:nowrap;pointer-events:auto;cursor:pointer;border:1px solid rgba(0,0,0,.08)}
+.rotulo b{font-weight:bold;margin-right:3px}
+#ayudaPaseo{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:var(--panel);border:1px solid var(--linea);border-radius:6px;padding:8px 12px;font-size:12px;text-align:center}
+.cruceta{display:grid;grid-template-columns:repeat(3,40px);gap:4px;justify-content:center;margin-top:6px}
+.cruceta button{height:36px;border:1px solid var(--linea);background:#fff;border-radius:4px}
+.cruceta button:first-child{grid-column:2}
+#carga{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--fondo);z-index:10;font-size:12px;color:var(--suave);gap:10px}
+#carga .barra{width:220px;height:3px;background:var(--linea)}
+#carga .barra div{height:100%;width:0;background:var(--tinta);transition:width .2s}
+#pie{position:fixed;left:0;right:0;bottom:0;padding:6px 16px;font-size:10px;color:var(--suave);pointer-events:none}
+@media (max-width:640px){
+  #panel{top:auto;bottom:28px;right:8px;left:8px;width:auto;max-height:45%}
+  #cabecera{top:10px;left:12px}
+  #ficha{bottom:auto;top:56px;left:8px;right:8px;max-width:none}
+}
