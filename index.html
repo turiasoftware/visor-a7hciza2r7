@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vivienda E3 · Modelo 3D</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="css/visor.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/build/three.module.js",
+  "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+</head>
+<body>
+<div id="visor"></div>
+
+<header id="cabecera">
+  <div class="titulo">Vivienda principal · E3</div>
+  <div class="subtitulo">Estado actual · levantamiento con dron y escáner, 18/10/2026</div>
+</header>
+
+<aside id="panel">
+  <button id="plegar" aria-label="Mostrar u ocultar el panel">☰</button>
+  <div class="cuerpo">
+    <section>
+      <h2>Vista</h2>
+      <div class="botones">
+        <button data-vista="exterior" class="activo">Exterior</button>
+        <button data-vista="interior">Interior</button>
+        <button data-vista="explotada">Explotada</button>
+        <button data-vista="paseo">Paseo</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Niveles</h2>
+      <div id="niveles"></div>
+    </section>
+
+    <section>
+      <h2>Corte horizontal</h2>
+      <input type="range" id="corte" min="-3.2" max="9.5" step="0.05" value="9.5">
+      <div class="valor"><span id="corteValor">sin corte</span></div>
+    </section>
+
+    <section>
+      <h2>Separar plantas</h2>
+      <input type="range" id="explota" min="0" max="1" step="0.01" value="0">
+    </section>
+
+    <section>
+      <h2>Mostrar</h2>
+      <label><input type="checkbox" id="verMalla" checked> Fotografía (dron y escáner)</label>
+      <label><input type="checkbox" id="verVolumen"> Volúmenes del levantamiento</label>
+      <label><input type="checkbox" id="verRecintos" checked> Nombres de las estancias</label>
+      <label><input type="checkbox" id="verFases"> Fases (1971 / 2000-2004)</label>
+    </section>
+  </div>
+</aside>
+
+<div id="ficha" hidden>
+  <button class="cerrar" aria-label="Cerrar">×</button>
+  <div class="nombre"></div>
+  <div class="datos"></div>
+</div>
+
+<div id="ayudaPaseo" hidden>
+  <div>Arrastra para mirar · flechas o botones para andar · <b>Esc</b> para salir</div>
+  <div class="cruceta">
+    <button data-mov="adelante">▲</button>
+    <button data-mov="izquierda">◀</button><button data-mov="atras">▼</button><button data-mov="derecha">▶</button>
+  </div>
+</div>
+
+<div id="carga"><div class="barra"><div></div></div><div class="texto">Cargando modelo…</div></div>
+
+<footer id="pie">Joaquín Andrés Arquitectos · Documento de trabajo, no sustituye a los planos</footer>
+
+<script type="module" src="js/visor.js"></script>
+</body>
+</html>
