@@ -1,0 +1,338 @@
+{
+ "nota": "Superficies útiles de las plantas de estado actual (P1, P2, P3; noviembre de 2026). x, y: punto del rótulo en coordenadas locales; null = pendiente de sacar del DXF E3_Estado_actual.dxf. Fase: la de la construcción del recinto según el certificado; los sótanos quedan sin datar.",
+ "recintos": [
+  {
+   "nivel": "baja",
+   "n": 1,
+   "nombre": "Salón",
+   "sup": 87.44,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 2,
+   "nombre": "Galería",
+   "sup": 66.89,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 3,
+   "nombre": "Estancia (anexo)",
+   "sup": 32.35,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 4,
+   "nombre": "Escalera a planta alta y bodega",
+   "sup": 9.66,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 5,
+   "nombre": "Dormitorio",
+   "sup": 23.97,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 6,
+   "nombre": "Estancia",
+   "sup": 23.89,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 7,
+   "nombre": "Baño",
+   "sup": 5.47,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 8,
+   "nombre": "Baño",
+   "sup": 5.54,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 9,
+   "nombre": "Dormitorio",
+   "sup": 24.24,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 10,
+   "nombre": "Escalera a altillo y billar",
+   "sup": 7.09,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 11,
+   "nombre": "Aseo",
+   "sup": 1.8,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 12,
+   "nombre": "Aseo",
+   "sup": 2.56,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 13,
+   "nombre": "Armario",
+   "sup": 1.57,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 14,
+   "nombre": "Estancia",
+   "sup": 18.06,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 15,
+   "nombre": "Vestíbulo",
+   "sup": 2.43,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 16,
+   "nombre": "Estancia",
+   "sup": 5.45,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "baja",
+   "n": 17,
+   "nombre": "Baño",
+   "sup": 5.74,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "baja",
+   "n": 18,
+   "nombre": "Porche",
+   "sup": 48.7,
+   "x": null,
+   "y": null,
+   "fase": "2000"
+  },
+  {
+   "nivel": "alta",
+   "n": 1,
+   "nombre": "Salón con cocina",
+   "sup": 31.28,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 3,
+   "nombre": "Pasillo",
+   "sup": 5.61,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 4,
+   "nombre": "Baño",
+   "sup": 4.42,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 5,
+   "nombre": "Vestidor",
+   "sup": 7.32,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 6,
+   "nombre": "Estancia",
+   "sup": 7.71,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 7,
+   "nombre": "Baño",
+   "sup": 7.52,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 8,
+   "nombre": "Dormitorio",
+   "sup": 32.34,
+   "x": null,
+   "y": null,
+   "fase": "2004"
+  },
+  {
+   "nivel": "alta",
+   "n": 9,
+   "nombre": "Altillo (abierto al salón)",
+   "sup": 25.28,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "alta",
+   "n": 10,
+   "nombre": "Baño",
+   "sup": 5.77,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "alta",
+   "n": 11,
+   "nombre": "Estancia",
+   "sup": 18.47,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "alta",
+   "n": 12,
+   "nombre": "Rellano",
+   "sup": 1.42,
+   "x": null,
+   "y": null,
+   "fase": "1971"
+  },
+  {
+   "nivel": "sotanos",
+   "n": 1,
+   "nombre": "Escalera",
+   "sup": 3.8,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 2,
+   "nombre": "Sala",
+   "sup": 53.27,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 3,
+   "nombre": "Bodega",
+   "sup": 40.95,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 4,
+   "nombre": "Sala de billar",
+   "sup": 40.51,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 5,
+   "nombre": "Estancia",
+   "sup": 14.87,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 6,
+   "nombre": "Estancia",
+   "sup": 9.81,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 7,
+   "nombre": "Recinto",
+   "sup": 7.47,
+   "x": null,
+   "y": null,
+   "fase": null
+  },
+  {
+   "nivel": "sotanos",
+   "n": 8,
+   "nombre": "Recinto",
+   "sup": 4.41,
+   "x": null,
+   "y": null,
+   "fase": null
+  }
+ ]
+}

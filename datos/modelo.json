@@ -1,0 +1,23 @@
+{
+  "nombre": "Vivienda principal E3",
+  "origen": {
+    "nota": "Coordenadas locales del levantamiento: x, y de las plantas P1 a P3 (m) y z desde el suelo de planta baja (±0,00 = cota 60,46). En three.js: X = x, Y = z, Z = -y.",
+    "utm_x": null, "utm_y": null, "cota": 60.46
+  },
+  "norte_grados": 0,
+  "separacion_explotada": 4.5,
+  "niveles": [
+    { "id": "sotanos",  "nombre": "Sótanos",     "cota": -2.87, "techo": -0.31, "orden": 0,
+      "modelos": ["modelos/escaneo_sotanos.glb"] },
+    { "id": "baja",     "nombre": "Planta baja", "cota": 0.00,  "techo": 2.32,  "orden": 1,
+      "modelos": ["modelos/escaneo_baja.glb"] },
+    { "id": "alta",     "nombre": "Planta alta y altillo", "cota": 2.58, "techo": 6.25, "orden": 2,
+      "modelos": ["modelos/escaneo_alta.glb"] },
+    { "id": "cubierta", "nombre": "Cubiertas",   "cota": 6.25,  "techo": 9.20,  "orden": 3,
+      "modelos": ["modelos/cubierta.glb"] }
+  ],
+  "exterior": ["modelos/exterior.glb"],
+  "volumenes": "modelos/volumenes.glb",
+  "recintos": "datos/recintos.json",
+  "paseo_inicio": { "x": 16.0, "y": 21.0, "z": 0.0, "mira_x": 22.0, "mira_y": 21.0 }
+}
