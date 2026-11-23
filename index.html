@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vivienda E3 · Modelo 3D</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="css/visor.css">
@@ -18,8 +18,10 @@
 
 <header id="cabecera">
   <div class="titulo">Vivienda principal · E3</div>
-  <div class="subtitulo">Estado actual · levantamiento con dron y escáner, 18/10/2026</div>
+  <div class="subtitulo">Estado actual · dron y escáner, 18/10/2026</div>
 </header>
+
+<svg id="norte" viewBox="-12 -12 24 24" aria-label="Norte"><circle r="10" fill="rgba(255,255,255,.7)" stroke="#1d1d1b" stroke-width=".6"/><line id="norteBarra" x1="0" y1="0" x2="0" y2="-10" stroke="#1d1d1b" stroke-width="1.7"/></svg>
 
 <aside id="panel">
   <button id="plegar" aria-label="Mostrar u ocultar el panel">☰</button>
@@ -28,14 +30,14 @@
       <h2>Vista</h2>
       <div class="botones">
         <button data-vista="exterior" class="activo">Exterior</button>
-        <button data-vista="interior">Interior</button>
-        <button data-vista="explotada">Explotada</button>
+        <button data-vista="interior">Sin cubierta</button>
+        <button data-vista="explotada">Por plantas</button>
         <button data-vista="paseo">Paseo</button>
       </div>
     </section>
 
     <section>
-      <h2>Niveles</h2>
+      <h2>Plantas</h2>
       <div id="niveles"></div>
     </section>
 
@@ -52,10 +54,19 @@
 
     <section>
       <h2>Mostrar</h2>
-      <label><input type="checkbox" id="verMalla" checked> Fotografía (dron y escáner)</label>
+      <label><input type="checkbox" id="verFachadas" checked> Fachadas y entorno (dron)</label>
+      <label><input type="checkbox" id="verMalla" checked> Interiores (escáner)</label>
+      <label><input type="checkbox" id="verTechos"> Techos interiores</label>
       <label><input type="checkbox" id="verVolumen"> Volúmenes del levantamiento</label>
+      <label><input type="checkbox" id="verFases"> Fases de construcción</label>
       <label><input type="checkbox" id="verRecintos" checked> Nombres de las estancias</label>
-      <label><input type="checkbox" id="verFases"> Fases (1971 / 2000-2004)</label>
+    </section>
+
+    <section id="leyenda" hidden>
+      <div><i style="background:#c9a77c"></i>A más tardar en julio de 1971</div>
+      <div><i style="background:#8fae86"></i>Porches, antes de agosto de 2000</div>
+      <div><i style="background:#7f9fbf"></i>Bloque noreste, 2000-2004</div>
+      <div><i style="background:#d8d5cf"></i>Sótanos, sin datar</div>
     </section>
   </div>
 </aside>
@@ -68,6 +79,7 @@
 
 <div id="ayudaPaseo" hidden>
   <div>Arrastra para mirar · flechas o botones para andar · <b>Esc</b> para salir</div>
+  <div class="ir">Ir a: <button data-ir="sotanos">Sótano</button><button data-ir="baja">Planta baja</button><button data-ir="alta">Planta alta</button></div>
   <div class="cruceta">
     <button data-mov="adelante">▲</button>
     <button data-mov="izquierda">◀</button><button data-mov="atras">▼</button><button data-mov="derecha">▶</button>

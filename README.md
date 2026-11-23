@@ -25,9 +25,10 @@ vendor/three/         three.js (licencia MIT, vendor/three/LICENSE)
 ## Modelos (`modelos/`)
 | Archivo | Contenido |
 |---|---|
-| `exterior.glb` | Malla del dron de E3 recortada a la vivienda y su entorno inmediato |
+| `exterior_1.glb`, `exterior_2.glb` | Malla del dron de E3 recortada a la vivienda y su entorno (en dos archivos por el límite de subida) |
 | `cubierta.glb` | Solo los faldones y la azotea (malla del dron por encima de los techos) |
-| `escaneo_baja.glb`, `escaneo_alta.glb`, `escaneo_sotanos.glb` | Escaneos interiores registrados, sin techo |
+| `esc_<nivel>_muros_NN.glb` | Escaneos interiores registrados por zonas, sin techo (NN = zona del registro) |
+| `esc_<nivel>_techo_NN.glb` | Techos de los mismos escaneos (se ven en el paseo) |
 | `volumenes.glb` | Modelo de volúmenes de las plantas P1 a P3; cada nodo se llama `nivel__fase__nombre` |
 
 Coordenadas locales del levantamiento: x, y de las plantas y z desde el suelo de planta baja (±0,00 = cota 60,46), con el eje Y del glTF hacia arriba.
@@ -41,7 +42,7 @@ npx @gltf-transform/cli meshopt tmp3.glb salida.glb
 ```
 GitHub no admite archivos de más de 100 MB.
 
-Si no hay modelos, el visor arranca en **modo de prueba** con cajas aproximadas.
+Versión publicada también como artefacto de Claude (los .glb van como recursos del artefacto).
 
 ## Probar en local
 ```
