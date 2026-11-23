@@ -54,12 +54,12 @@ for (const n of cfg.niveles) {
 }
 
 // ---------- carga ----------
+// En el móvil se cargan los modelos con texturas reducidas (modelos/movil/): con las de escritorio se queda sin memoria.
+const movil = matchMedia('(pointer: coarse)').matches || Math.min(innerWidth, innerHeight) < 700;
+if (movil) renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+const url = u => movil && !u.includes('volumenes') ? u.replace('modelos/', 'modelos/movil/') : u;
 const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 const barra = $('#carga .barra div');
-const lista = [...cfg.exterior.map(u => [u, gExterior]),
-  ...cfg.niveles.flatMap(n => [...n.muros.map(u => [u, niveles[n.id].userData.malla]),
-                               ...(n.techos || []).map(u => [u, niveles[n.id].userData.techo])])];
-let hechos = 0, cargados = 0;
 function prepara(obj) {
   obj.traverse(o => {
     if (!o.isMesh) return;
@@ -67,13 +67,30 @@ function prepara(obj) {
     mats.forEach(m => { m.clippingPlanes = planos; m.side = THREE.DoubleSide; m.metalness = 0; m.roughness = 1; });
   });
 }
-async function carga(url, destino) {
-  try { const g = await loader.loadAsync(url); prepara(g.scene); destino.add(g.scene); cargados++; }
-  catch (e) { console.warn('No se ha podido cargar', url, e); }
-  barra.style.width = `${(++hechos / (lista.length + 1)) * 100}%`;
+async function carga(u, destino) {
+  try { const g = await loader.loadAsync(url(u)); prepara(g.scene); destino.add(g.scene); return true; }
+  catch (e) { console.warn('No se ha podido cargar', u, e); return false; }
 }
-// de seis en seis para no saturar el móvil
-for (let i = 0; i < lista.length; i += 6) await Promise.all(lista.slice(i, i + 6).map(([u, d]) => carga(u, d)));
+// primero el exterior y la cubierta (se ve la casa enseguida); los interiores siguen cargando detrás
+const primero = [...cfg.exterior.map(u => [u, gExterior]), ...niveles.cubierta.userData.muros.map(u => [u, niveles.cubierta.userData.malla])];
+let hechos = 0;
+await Promise.all(primero.map(async ([u, d]) => { await carga(u, d); barra.style.width = `${(++hechos / primero.length) * 100}%`; }));
+const interiores = cfg.niveles.filter(n => n.id !== 'cubierta').flatMap(n => n.muros.map(u => [u, niveles[n.id].userData.malla]));
+const aviso = document.createElement('div'); aviso.id = 'cargando'; document.body.appendChild(aviso);
+(async () => {
+  let k = 0;
+  for (let i = 0; i < interiores.length; i += 3) {
+    aviso.textContent = `Cargando interiores… ${Math.round(100 * k / interiores.length)} %`;
+    await Promise.all(interiores.slice(i, i + 3).map(([u, d]) => carga(u, d))); k += 3;
+  }
+  aviso.remove();
+})();
+// los techos solo hacen falta en el paseo o si se piden: se cargan la primera vez
+let techosPedidos = false;
+function cargaTechos() {
+  if (techosPedidos) return; techosPedidos = true;
+  cfg.niveles.forEach(n => (n.techos || []).forEach(u => carga(u, niveles[n.id].userData.techo)));
+}
 
 // volúmenes del levantamiento: nodos "<nivel>__<fase>__<tipo>"
 const colFase = { '1971': 0xc9a77c, '2000': 0x8fae86, '2004': 0x7f9fbf, 'sin': 0xd8d5cf };
@@ -97,7 +114,6 @@ try {
     (niveles[nivel]?.userData.volumen ?? gExterior).add(nodo);
   });
 } catch (e) { console.warn('Sin volúmenes', e); }
-barra.style.width = '100%';
 $('#carga').remove();
 
 // ---------- rótulos de recintos ----------
@@ -171,6 +187,7 @@ function aplica() {
     g.visible = estado.visible[n.id];
     u.malla.visible = n.id === 'cubierta' ? malla || estado.vista === 'exterior' : malla;
     u.techo.visible = malla && $('#verTechos').checked;
+    if (u.techo.visible) cargaTechos();
     u.volumen.visible = vol || (!malla && n.id !== 'cubierta');
     u.rotulos.visible = $('#verRecintos').checked && estado.vista !== 'exterior' && estado.visible[n.id] && n.id !== 'cubierta' &&
       (expl || n.id === superior);
