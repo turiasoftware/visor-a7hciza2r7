@@ -1,23 +1,109 @@
 {
-  "nombre": "Vivienda principal E3",
-  "origen": {
-    "nota": "Coordenadas locales del levantamiento: x, y de las plantas P1 a P3 (m) y z desde el suelo de planta baja (±0,00 = cota 60,46). En three.js: X = x, Y = z, Z = -y.",
-    "utm_x": null, "utm_y": null, "cota": 60.46
+ "nombre": "Vivienda principal E3",
+ "origen": {
+  "nota": "Marco local del levantamiento (m): x, y de las plantas P1 a P3 y z desde el suelo de la planta baja (±0,00 = cota 60,46). En three.js: X = x, Y = z, Z = -y. Paso a UTM (ETRS89 huso 30): giro de 1,97° y origen en X 722.276, Y 4.384.420.",
+  "utm_x": 722276.0,
+  "utm_y": 4384420.0,
+  "giro": 1.97,
+  "cota": 60.46
+ },
+ "norte": [
+  -0.0344,
+  0.9994
+ ],
+ "separacion_explotada": 7.0,
+ "niveles": [
+  {
+   "id": "sotanos",
+   "nombre": "Sótanos",
+   "cota": -2.87,
+   "orden": 0,
+   "nota": "Bodega −2,87 · bajo el salón −2,25",
+   "muros": [
+    "modelos/esc_sotanos_muros_05.glb",
+    "modelos/esc_sotanos_muros_07.glb"
+   ],
+   "techos": [
+    "modelos/esc_sotanos_techo_05.glb",
+    "modelos/esc_sotanos_techo_07.glb"
+   ],
+   "ir": {
+    "x": 16.0,
+    "y": 17.0,
+    "z": -2.25,
+    "mira_x": 16.0,
+    "mira_y": 22.0
+   }
   },
-  "norte_grados": 0,
-  "separacion_explotada": 4.5,
-  "niveles": [
-    { "id": "sotanos",  "nombre": "Sótanos",     "cota": -2.87, "techo": -0.31, "orden": 0,
-      "modelos": ["modelos/escaneo_sotanos.glb"] },
-    { "id": "baja",     "nombre": "Planta baja", "cota": 0.00,  "techo": 2.32,  "orden": 1,
-      "modelos": ["modelos/escaneo_baja.glb"] },
-    { "id": "alta",     "nombre": "Planta alta y altillo", "cota": 2.58, "techo": 6.25, "orden": 2,
-      "modelos": ["modelos/escaneo_alta.glb"] },
-    { "id": "cubierta", "nombre": "Cubiertas",   "cota": 6.25,  "techo": 9.20,  "orden": 3,
-      "modelos": ["modelos/cubierta.glb"] }
-  ],
-  "exterior": ["modelos/exterior.glb"],
-  "volumenes": "modelos/volumenes.glb",
-  "recintos": "datos/recintos.json",
-  "paseo_inicio": { "x": 16.0, "y": 21.0, "z": 0.0, "mira_x": 22.0, "mira_y": 21.0 }
+  {
+   "id": "baja",
+   "nombre": "Planta baja",
+   "cota": 0.0,
+   "orden": 1,
+   "nota": "±0,00 = cota 60,46",
+   "muros": [
+    "modelos/esc_baja_muros_00.glb",
+    "modelos/esc_baja_muros_01.glb",
+    "modelos/esc_baja_muros_02.glb",
+    "modelos/esc_baja_muros_03.glb",
+    "modelos/esc_baja_muros_04.glb",
+    "modelos/esc_baja_muros_09.glb"
+   ],
+   "techos": [
+    "modelos/esc_baja_techo_00.glb",
+    "modelos/esc_baja_techo_01.glb",
+    "modelos/esc_baja_techo_02.glb",
+    "modelos/esc_baja_techo_03.glb",
+    "modelos/esc_baja_techo_04.glb",
+    "modelos/esc_baja_techo_09.glb"
+   ],
+   "ir": {
+    "x": 13.2,
+    "y": 19.0,
+    "z": 0.0,
+    "mira_x": 20.0,
+    "mira_y": 20.0
+   }
+  },
+  {
+   "id": "alta",
+   "nombre": "Planta alta y altillo",
+   "cota": 2.58,
+   "orden": 2,
+   "nota": "Altillo +2,58 · bloque noreste +3,56",
+   "muros": [
+    "modelos/esc_alta_muros_06.glb",
+    "modelos/esc_alta_muros_08.glb"
+   ],
+   "techos": [
+    "modelos/esc_alta_techo_06.glb",
+    "modelos/esc_alta_techo_08.glb"
+   ],
+   "ir": {
+    "x": 23.0,
+    "y": 26.0,
+    "z": 3.56,
+    "mira_x": 34.0,
+    "mira_y": 26.0
+   }
+  },
+  {
+   "id": "cubierta",
+   "nombre": "Cubiertas",
+   "cota": 6.95,
+   "orden": 3,
+   "nota": "Alero del bloque noreste +6,95",
+   "muros": [
+    "modelos/cubierta.glb"
+   ],
+   "techos": []
+  }
+ ],
+ "exterior": [
+  "modelos/exterior_1.glb",
+  "modelos/exterior_2.glb"
+ ],
+ "volumenes": "modelos/volumenes.glb",
+ "recintos": "datos/recintos.json",
+ "paseo_inicio": "baja"
 }
