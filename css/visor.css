@@ -53,3 +53,4 @@ body.compacto .rotulo b{margin-right:0}
 .rotulo:hover span{display:inline!important}
 #panel.plegado{min-height:34px;width:42px}
 @media (max-width:640px){ #panel.plegado{left:auto;right:8px;width:42px} }
+#cargando{position:fixed;left:50%;top:14px;transform:translateX(-50%);background:var(--panel);border:1px solid var(--linea);border-radius:4px;padding:4px 10px;font-size:11px;color:var(--suave);pointer-events:none}
