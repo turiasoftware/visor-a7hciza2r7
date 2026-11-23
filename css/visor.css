@@ -42,3 +42,14 @@ label{display:block;margin:4px 0;cursor:pointer}
   #cabecera{top:10px;left:12px}
   #ficha{bottom:auto;top:56px;left:8px;right:8px;max-width:none}
 }
+#norte{position:fixed;top:58px;left:16px;width:38px;height:38px;pointer-events:none}
+#leyenda div{display:flex;align-items:center;gap:6px;margin:3px 0;color:var(--suave)}
+#leyenda i{display:inline-block;width:14px;height:10px;border:1px solid rgba(0,0,0,.25)}
+.ir{margin-top:6px}
+.ir button{border:1px solid var(--linea);background:#fff;border-radius:4px;padding:3px 6px;margin:0 2px;cursor:pointer}
+@media (max-width:640px){ #norte{top:48px;left:12px;width:32px;height:32px} }
+body.compacto .rotulo span{display:none}
+body.compacto .rotulo b{margin-right:0}
+.rotulo:hover span{display:inline!important}
+#panel.plegado{min-height:34px;width:42px}
+@media (max-width:640px){ #panel.plegado{left:auto;right:8px;width:42px} }
