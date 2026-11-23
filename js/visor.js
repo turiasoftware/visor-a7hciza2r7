@@ -77,7 +77,7 @@ for (let i = 0; i < lista.length; i += 6) await Promise.all(lista.slice(i, i + 6
 
 // volúmenes del levantamiento: nodos "<nivel>__<fase>__<tipo>"
 const colFase = { '1971': 0xc9a77c, '2000': 0x8fae86, '2004': 0x7f9fbf, 'sin': 0xd8d5cf };
-const colTipo = { muro: 0xf6f4ef, losa: 0x9a9894, suelo: 0xe9e2d4, cubierta: 0xd9d1c3, madera: 0xc8aa82, chimenea: 0xf2f2f2 };
+const colTipo = { muro: 0xf6f4ef, losa: 0x9a9894, suelo: 0xe9e2d4, cubierta: 0xe3c3a8, canto: 0xc9a284, cubierta_inf: 0xd9d2c8, madera: 0xc8aa82, chimenea: 0xf2f2f2 };
 const matsVol = [];
 try {
   const v = await loader.loadAsync(cfg.volumenes);
